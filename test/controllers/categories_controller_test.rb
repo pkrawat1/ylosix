@@ -6,6 +6,11 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should get 404 error if categories empty or not found' do
+    #get :index
+    #assert_response 404
+  end
+
   test 'should get show' do
     object = categories(:digital_cameras)
 

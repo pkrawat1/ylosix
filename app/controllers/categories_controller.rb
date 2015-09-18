@@ -5,7 +5,8 @@ class CategoriesController < Frontend::CommonController
   before_action :set_category, except: [:index]
 
   def index
-    @categories = Category.root_category.children
+    @categories = Category.root_category.try(:children)
+    not_found if !@categories || @categories.empty?
   end
 
   def show
